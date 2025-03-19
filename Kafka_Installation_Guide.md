@@ -221,7 +221,7 @@ _Caption: Screenshot showing the created `zookeeper-data` and `kafka-logs` direc
    - Execute the following command:
 
      ```cmd
-     java -jar kafka-ui.jar --spring.config.location=app.yaml
+     java -jar kafka-ui.jar --spring.config.location=properties.yaml
      ```
 
      ![Kafka UI](images/Screenshot%202025-03-10%20092454.png)
