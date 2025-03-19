@@ -186,7 +186,7 @@ _Caption: Screenshot showing the created `zookeeper-data` and `kafka-logs` direc
      ![Kafka UI](images/Screenshot%202025-03-10%20094450.png)
 
 2. **Rename the JAR**: Rename the downloaded file to `kafka-ui.jar` for simplicity.
-3. **Create `app.yaml`**:
+3. **Create `properties.yaml`**:
 
    - Open a text editor (e.g., Notepad) and paste the following configuration:
 
@@ -202,20 +202,20 @@ _Caption: Screenshot showing the created `zookeeper-data` and `kafka-logs` direc
        type: DISABLED
      ```
 
-   - Save the file as `app.yaml` in a folder (e.g., `C:\kafka-ui`).
+   - Save the file as `properties.yaml` in a folder (e.g., `C:\kafka`).
 
-   _Alternatively_, download the `app.yaml` file directly:
+   _Alternatively_, download the `properties.yaml` file directly:
 
    - [Download app.yaml](https://github.com/Danish2511/documentation/blob/main/Kafka/images/app.yaml)
 
-4. **Organize Files**: Place both `kafka-ui.jar` and `app.yaml` in the same folder (e.g., `C:\kafka-ui`).
+4. **Organize Files**: Place both `kafka-ui.jar` and `properties.yaml` in the same folder (e.g., `C:\kafka`).
 5. **Run Kafka UI**:
 
    - Open a new Command Prompt window.
    - Navigate to the folder:
 
      ```cmd
-     cd C:\kafka-ui
+     cd C:\kafka
      ```
 
    - Execute the following command:
