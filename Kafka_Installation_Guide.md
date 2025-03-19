@@ -234,7 +234,7 @@ _Caption: Screenshot showing the created `zookeeper-data` and `kafka-logs` direc
 
 ---
 
-## Step 8: Stop Kafka and ZooKeeper
+## Step 8: Stop Kafka, ZooKeeper and Kafka UI
 
 1. **Stop Kafka Server**:
 
@@ -247,5 +247,9 @@ _Caption: Screenshot showing the created `zookeeper-data` and `kafka-logs` direc
    - Go to the ZooKeeper CMD window and press `Ctrl+C`.
 
      ![Shutdown Confirmation](images/Screenshot%202025-03-09%20161932.png)
+
+3. **Stop Kafka UI**:
+
+   - Go to the Kafka UI CMD window and press `Ctrl+C`.
 
 ---
