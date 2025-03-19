@@ -206,7 +206,7 @@ _Caption: Screenshot showing the created `zookeeper-data` and `kafka-logs` direc
 
    _Alternatively_, download the `properties.yaml` file directly:
 
-   - [Download app.yaml](https://github.com/Danish2511/open-docs/blob/main/properties.yaml)
+   - [Download properties.yaml](https://github.com/Danish2511/open-docs/blob/main/properties.yaml)
 
 4. **Organize Files**: Place both `kafka-ui.jar` and `properties.yaml` in the same folder (e.g., `C:\kafka`).
 5. **Run Kafka UI**:
