@@ -227,8 +227,8 @@ integration-artifacts\{{pkgname}}\protobuf\{{contractname}}.proto
 
 ```bash
 C:\wMServiceDesigner\common\bin\protoc ^
---proto_path=--proto_path=integration-artifacts\abgcdm\protobuf ^
---python_out=--python_out=enterprise-data-models\python\demandorderresponsecdm ^
+--proto_path=integration-artifacts\abgcdm\protobuf ^
+--python_out=enterprise-data-models\python\demandorderresponsecdm ^
 integration-artifacts\abgcdm\protobuf\ABGCDM_DemandOrder_CDM_DemandOrderResponseCDM.proto
 ```
 
@@ -242,3 +242,4 @@ integration-artifacts\abgcdm\protobuf\ABGCDM_DemandOrder_CDM_DemandOrderResponse
   - staging_dv -> staging_ts
   - staging_ts -> staging_qa
   - staging_qa -> main
+
