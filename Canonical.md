@@ -39,7 +39,6 @@ https://amwaycloud.atlassian.net/browse/GICDCLOUD-5012
 ### For New Creation
 
 - **Create a Data Model PR**
-
   - Define the **Data Model Name** (must be included in the topic name)
   - Define the **Contract Name**  
     _(e.g., `ABGCDM_AddressBook_CDM_AddressBookCDM`)_
@@ -108,7 +107,6 @@ https://amwaycloud.atlassian.net/browse/ICCLOUD-851
 
 - **wm-canonical**  
   https://github.com/AmwayCommon/wm-canonical
-
   - Branches: `Dev` / `Test` / `QA` / `master`
 
 - **wm-bundle-jda-wms**  
@@ -170,7 +168,6 @@ https://github.com/AmwayCommon/wm-bundle-jda-wms
 
 - **EDM Repository:**  
   https://github.com/AmwayCommon/enterprise-data-models
-
   - Active branches:  
     `staging_dv`, `staging_ts`, `staging_qa`, `main`
 
@@ -247,13 +244,19 @@ integration-artifacts\abgcdm\protobuf\ABGCDM_DemandOrder_CDM_DemandOrderResponse
 
 ### Commands
 
+**Clean Package:**
+
 ```bash
 mvn clean package
 ```
 
+**For EDM:**
+
 ```bash
 mvn install:install-file -Dfile=enterprise-data-models-0.2.7.jar -DgroupId=com.amway.integration.serde -Dversion=0.2.7 -Dpackaging=jar
 ```
+
+**For Kafka Utils:**
 
 ```bash
 mvn install:install-file -Dfile=kafka-utils-0.2.9.jar -DgroupId=com.amway.camelk.utils -Dversion=0.2.9 -Dpackaging=jar
