@@ -243,3 +243,18 @@ integration-artifacts\abgcdm\protobuf\ABGCDM_DemandOrder_CDM_DemandOrderResponse
   - staging_ts -> staging_qa
   - staging_qa -> main
 
+## For Local Purpose
+
+### Commands
+
+```bash
+mvn clean package
+```
+
+```bash
+mvn install:install-file -Dfile=enterprise-data-models-0.2.7.jar -DgroupId=com.amway.integration.serde -Dversion=0.2.7 -Dpackaging=jar
+```
+
+```bash
+mvn install:install-file -Dfile=kafka-utils-0.2.9.jar -DgroupId=com.amway.camelk.utils -Dversion=0.2.9 -Dpackaging=jar
+```
