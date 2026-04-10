@@ -1,7 +1,3 @@
-Here’s the same process, clearly written for each flow 👇
-
----
-
 # 🔹 1. Conflicts: `staging_dv → staging_ts`
 
 ### Step 1: Identify branches
