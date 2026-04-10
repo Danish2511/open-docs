@@ -1,17 +1,20 @@
+Here’s the same process, clearly written for each flow 👇
+
+---
+
 # 🔹 1. Conflicts: `staging_dv → staging_ts`
 
 ### Step 1: Identify branches
 
-* Source → `staging_dv`
-* Target → `staging_ts`
+- Source → `staging_dv`
+- Target → `staging_ts`
 
 ---
 
-### Step 2: Create new branch from source
+### Step 2: Create new branch from source and clone it
 
 ```bash
-git checkout staging_dv
-git checkout -b resolve_conflicts_dv
+git clone -b resolve_conflicts_dv
 ```
 
 ---
@@ -19,16 +22,16 @@ git checkout -b resolve_conflicts_dv
 ### Step 3: Merge target into new branch
 
 ```bash
-git merge staging_ts
+git merge origin/staging_ts
 ```
 
 ---
 
 ### Step 4: Resolve conflicts
 
-* Open VS Code
-* Fix conflict markers
-* Remove:
+- Open VS Code
+- Fix conflict markers
+- Remove:
 
 ```
 <<<<<<< HEAD
@@ -72,16 +75,15 @@ git push origin resolve_conflicts_dv
 
 ### Step 1: Identify branches
 
-* Source → `staging_ts`
-* Target → `staging_qa`
+- Source → `staging_ts`
+- Target → `staging_qa`
 
 ---
 
 ### Step 2: Create new branch from source
 
 ```bash
-git checkout staging_ts
-git checkout -b resolve_conflicts_ts
+git clone -b resolve_conflicts_ts
 ```
 
 ---
@@ -89,7 +91,7 @@ git checkout -b resolve_conflicts_ts
 ### Step 3: Merge target into new branch
 
 ```bash
-git merge staging_qa
+git merge origin/staging_qa
 ```
 
 ---
@@ -132,16 +134,15 @@ git push origin resolve_conflicts_ts
 
 ### Step 1: Identify branches
 
-* Source → `staging_qa`
-* Target → `main`
+- Source → `staging_qa`
+- Target → `main`
 
 ---
 
 ### Step 2: Create new branch from source
 
 ```bash
-git checkout staging_qa
-git checkout -b resolve_conflicts_qa
+git clone -b resolve_conflicts_qa
 ```
 
 ---
@@ -149,7 +150,7 @@ git checkout -b resolve_conflicts_qa
 ### Step 3: Merge target into new branch
 
 ```bash
-git merge main
+git merge origin/main
 ```
 
 ---
