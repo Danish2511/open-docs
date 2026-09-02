@@ -66,8 +66,6 @@ def generate_comparison_report():
     print(f"\n✅ Key comparison report written to {report_file}")
 
 generate_comparison_report()
-print (f'')
-print (f'----------------------------------------------------------------------------------')
 
 def extract_mounts_from_bundle(bundle_yaml_path="bundle.yaml"):
     """Extract the list of mounts from bundle.yaml"""
