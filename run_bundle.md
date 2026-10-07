@@ -121,4 +121,118 @@ import pyperclip  # install with: pip install pyperclip
 # Copy to clipboard
 pyperclip.copy(camel_command)
 print("\n✅ Command copied to clipboard!")
+
+def extract_mount_references_from_yaml(source_dir="sources/yaml"):
+
+    mount_references = []
+
+    if not os.path.exists(source_dir):
+        return mount_references
+
+    # Matches:
+    # {{mounts.directory}}/filename.sql
+    pattern = re.compile(r"\{\{\s*mounts\.directory\s*\}\}/([^\s\"']+)")
+
+    for root, _, files in os.walk(source_dir):
+        for filename in files:
+            filepath = os.path.join(root, filename)
+
+            try:
+                with open(filepath, "r", encoding="utf-8") as f:
+                    content = f.read()
+
+                matches = pattern.findall(content)
+
+                for mount_file in matches:
+                    mount_references.append(
+                        {"yaml_file": filepath, "mount_file": mount_file}
+                    )
+
+            except Exception as e:
+                print(f"⚠️ Could not read {filepath}: {e}")
+
+    return mount_references
+
+
+def validate_yaml_mount_references(source_dir="sources/yaml", mount_dir="mounts"):
+    """
+    Validate that every mount file referenced from YAML
+    actually exists under mounts/.
+    """
+
+    mount_references = extract_mount_references_from_yaml(source_dir)
+
+    # Get actual files available under mounts/
+    files_in_mount_dir = set(list_files_in_mounts(mount_dir))
+
+    report_lines = []
+
+    report_lines.append("YAML Mount Reference Validation Report")
+    report_lines.append("============================================")
+    report_lines.append(
+        f"Total mount references found in YAML: " f"{len(mount_references)}"
+    )
+
+    # Remove duplicates while keeping YAML file information
+    unique_references = {}
+
+    for reference in mount_references:
+        mount_file = reference["mount_file"]
+
+        if mount_file not in unique_references:
+            unique_references[mount_file] = []
+
+        unique_references[mount_file].append(reference["yaml_file"])
+
+    missing_count = 0
+    found_count = 0
+
+    report_lines.append("\nMount Reference Details:")
+    report_lines.append("--------------------------------------------")
+
+    for mount_file in sorted(unique_references):
+
+        yaml_files = sorted(set(unique_references[mount_file]))
+
+        if mount_file in files_in_mount_dir:
+            found_count += 1
+
+            report_lines.append(f"\n✅ {mount_file}")
+
+        else:
+            missing_count += 1
+
+            report_lines.append(f"\n❌ {mount_file}")
+
+        report_lines.append("   Referenced from:")
+
+        for yaml_file in yaml_files:
+            report_lines.append(f"      - {yaml_file}")
+
+    report_lines.append("\n")
+    report_lines.append("Summary")
+    report_lines.append("============================================")
+    report_lines.append(f"Unique mount references: {len(unique_references)}")
+    report_lines.append(f"Files found in mounts/: {found_count}")
+    report_lines.append(f"Files missing from mounts/: {missing_count}")
+
+    if missing_count == 0:
+        report_lines.append("\n✅ All YAML mount references exist under mounts/")
+    else:
+        report_lines.append("\n❌ Some YAML mount references are missing from mounts/")
+
+    report = "\n".join(report_lines)
+
+    report_file = ".support/yaml-mount-reference-report.txt"
+
+    os.makedirs(os.path.dirname(report_file), exist_ok=True)
+
+    with open(report_file, "w", encoding="utf-8") as f:
+        f.write(report)
+
+    print(f"\n✅ YAML mount reference report written to " f"{report_file}")
+
+
+# Run YAML → mounts validation
+validate_yaml_mount_references()
 ```
